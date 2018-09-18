@@ -35,9 +35,14 @@ class MySpider:
             req = urllib.request.Request(item)
             html = urllib.request.urlopen(req)
             doc = html.read().decode('utf8')
-            url = re.findall(conf.DOWNLOAD_LINK_PATTERN, doc)[0]
-            print('Storing {}'.format(url))
-            fres.write(url + '\n')
+            try:
+                url = re.findall(conf.DOWNLOAD_LINK_PATTERN, doc)[0]
+                print('Storing {}'.format(url))
+                fres.write(url + '\n')
+            except IndexError:
+                ferr = open('error.txt', 'a')
+                ferr.write(item + '\n')
+                ferr.close
             time.sleep(3)
         fres.close()
 
