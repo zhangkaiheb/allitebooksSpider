@@ -21,7 +21,7 @@ class MySpider:
                 html = urllib.request.urlopen(req)
                 doc = html.read().decode('utf8')
                 alist = list(set(re.findall(conf.BOOK_LINK_PATTERN, doc)))
-                print('Now working on page {}\n'.format(self.start_page))
+                print('\npage {}\n'.format(self.start_page))
                 time.sleep(10)
                 self.start_page += 1
                 self.fetch_download_link(alist)
@@ -37,7 +37,7 @@ class MySpider:
             doc = html.read().decode('utf8')
             try:
                 url = re.findall(conf.DOWNLOAD_LINK_PATTERN, doc)[0]
-                print('Storing {}'.format(url))
+                print('{}'.format(url))
                 fres.write(url + '\n')
             except IndexError:
                 ferr = open('error.txt', 'a')

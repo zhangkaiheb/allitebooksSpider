@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 import random
 
+
+BASE_URL = 'http://www.allitebooks.com'
+
+BOOK_LINK_PATTERN = 'href="(.*)" rel="bookmark">'
+DOWNLOAD_LINK_PATTERN = '<a href="(http:\/\/file.*)" target="_blank">'
+
+
 USER_AGENTS = [
     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)",
     "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)",
@@ -37,13 +44,6 @@ USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11",
     "Mozilla/5.0 (X11; U; Linux x86_64; zh-CN; rv:1.9.2.10) Gecko/20100922 Ubuntu/10.10 (maverick) Firefox/3.6.10"
 ]
-
-PROXY = {'http': "http://127.0.0.1:9743/"}
-
-BOOK_LINK_PATTERN = 'href="(.*)" rel="bookmark">'
-DOWNLOAD_LINK_PATTERN = '<a href="(http:\/\/file.*)" target="_blank">'
-
-BASE_URL = 'http://www.allitebooks.com'
 
 FAKE_HEADER = {
     'User-Agent': random.choice(USER_AGENTS),
